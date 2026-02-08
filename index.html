@@ -36,15 +36,53 @@
       animation: fadeDown .8s ease;
     }
     header h1 { font-size: 2.5rem; margin-bottom: .5rem; }
-    section { max-width: 1000px; margin: auto; padding: 3rem 1rem; animation: fad
+    section { max-width: 1000px; margin: auto; padding: 3rem 1rem; animation: fadeUp .8s ease; }
+    h2 { color: var(--accent); margin-bottom: 1rem; }
+    .skills span {
+      display: inline-block;
+      background: var(--bg-card);
+      padding: .4rem .7rem;
+      margin: .3rem;
+      border-radius: 6px;
+      font-size: .9rem;
+      transition: transform .2s ease;
+    }
+    .skills span:hover { transform: scale(1.05); }
+    .card {
+      background: var(--bg-card);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,.15);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px rgba(0,0,0,.25);
+    }
+    footer { text-align: center; padding: 2rem 1rem; background: var(--bg-card); }
+    a { color: var(--accent); text-decoration: none; }
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--bg-card);
+      border: none;
+      padding: .6rem .8rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px);} to { opacity: 1; transform: translateY(0);} }
   </style>
   <!-- Google Analytics (replace G-XXXXXXXXXX with your Measurement ID) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWETN76KKQ"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);} 
     gtag('js', new Date());
-    gtag('config', 'G-MWETN76KKQ');
+    gtag('config', 'G-XXXXXXXXXX');
 
     function trackResumeDownload() {
       gtag('event', 'download_resume', {
@@ -55,6 +93,7 @@
   </script>
 </head>
 <body>
+<button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
 
 <header>
   <h1>Madhu Sudhan P</h1>
@@ -158,5 +197,11 @@
   <p>© 2026 Madhu Sudhan P | Built with ❤️ for DevOps</p>
 </footer>
 
+<script>
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    document.documentElement.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
+  }
+</script>
 </body>
 </html>
