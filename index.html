@@ -18,15 +18,30 @@
     a { color: #93c5fd; text-decoration: none; }
     a:hover { text-decoration: underline; }
   </style>
+  <!-- Google Analytics (replace G-XXXXXXXXXX with your Measurement ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+
+    function trackResumeDownload() {
+      gtag('event', 'download_resume', {
+        event_category: 'engagement',
+        event_label: 'Resume PDF'
+      });
+    }
+  </script>
 </head>
 <body>
 
 <header>
   <h1>Madhu Sudhan P</h1>
-  <p>DevOps Support Engineer | • Linux • AWS • Docker • Kubernetes • CI/CD</p>
+  <p>DevOps Support Engineer | AWS • Kubernetes • CI/CD</p>
   <p>📍 Chennai, India</p>
   <p style="margin-top:1.5rem;">
-    <a href="MadhuSudhan_a.pdf" download style="background:#020617;color:#e5e7eb;padding:0.8rem 1.5rem;border-radius:8px;font-weight:bold;display:inline-block;">
+    <a href="resume.pdf" download onclick="trackResumeDownload()" style="background:#020617;color:#e5e7eb;padding:0.8rem 1.5rem;border-radius:8px;font-weight:bold;display:inline-block;">
       ⬇️ Download Resume (PDF)
     </a>
   </p>
